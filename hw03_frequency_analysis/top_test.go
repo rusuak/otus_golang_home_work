@@ -48,6 +48,18 @@ func TestTop10(t *testing.T) {
 		require.Len(t, Top10(""), 0)
 	})
 
+	t.Run("string with spaces only", func(t *testing.T) {
+		require.Len(t, Top10("            "), 0)
+	})
+
+	t.Run("short text string", func(t *testing.T) {
+		require.Len(t, Top10("1 ыы ss ыы 1 ыы"), 3)
+	})
+
+	t.Run("string with unicode", func(t *testing.T) {
+		require.Len(t, Top10(" \\u65e5 世界 \\u65e5 世界 \\u65e5 \\xe6\\x9c\\xac2"), 3)
+	})
+
 	t.Run("positive test", func(t *testing.T) {
 		if taskWithAsteriskIsCompleted {
 			expected := []string{
