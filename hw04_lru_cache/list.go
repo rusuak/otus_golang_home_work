@@ -1,4 +1,4 @@
-package list
+package hw04lrucache
 
 type List interface {
 	Len() int
@@ -78,8 +78,6 @@ func (l *list) Remove(i *ListItem) {
 	}
 
 	l.len--
-
-	return
 }
 
 func (l *list) MoveToFront(i *ListItem) {

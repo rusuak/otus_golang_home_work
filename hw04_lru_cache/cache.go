@@ -1,9 +1,5 @@
 package hw04lrucache
 
-import (
-	"github.com/rusuak/otus_golang_home_work/hw04_lru_cache/list"
-)
-
 type Key string
 
 type Cache interface {
@@ -14,8 +10,8 @@ type Cache interface {
 
 type lruCache struct {
 	capacity int
-	queue    list.List
-	items    map[Key]*list.ListItem
+	queue    List
+	items    map[Key]*ListItem
 }
 
 type cacheItem struct {
@@ -26,8 +22,8 @@ type cacheItem struct {
 func NewCache(capacity int) Cache {
 	return &lruCache{
 		capacity: capacity,
-		queue:    list.NewList(),
-		items:    make(map[Key]*list.ListItem, capacity),
+		queue:    NewList(),
+		items:    make(map[Key]*ListItem, capacity),
 	}
 }
 

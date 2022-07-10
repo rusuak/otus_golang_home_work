@@ -1,4 +1,4 @@
-package list
+package hw04lrucache
 
 import (
 	"testing"
