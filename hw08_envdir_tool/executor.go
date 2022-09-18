@@ -10,7 +10,8 @@ import (
 
 // RunCmd runs a command + arguments (cmd) with environment variables from env.
 func RunCmd(cmd []string, env Environment) (returnCode int) {
-	commandName := strings.Trim(cmd[0], " \t\n") // линтер ругается если напрямую передаем входящий аргумент в exec.Command()
+	// линтер ругается если напрямую передаем входящий аргумент в exec.Command()
+	commandName := strings.Trim(cmd[0], " \t\n")
 	commandArgs := cmd[1:]
 
 	command := exec.Command(commandName, commandArgs...)
